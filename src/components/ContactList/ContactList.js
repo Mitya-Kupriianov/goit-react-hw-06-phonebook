@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import ContactListItem from './ContactListItem';
+import { useSelector } from 'react-redux';
+import { getContacts, getFilter } from 'redux/selectors';
 
-export default function ContactList({ contacts, filter, idDelete }) {
+export default function ContactList({ idDelete }) {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
   return (
     <ul>
-      {contacts
+      {/* {contacts
         .filter(contact =>
           contact.name.toLowerCase().includes(filter.toLowerCase())
         )
@@ -18,7 +22,7 @@ export default function ContactList({ contacts, filter, idDelete }) {
               idDelete={idDelete}
             />
           );
-        })}
+        })} */}
     </ul>
   );
 }
