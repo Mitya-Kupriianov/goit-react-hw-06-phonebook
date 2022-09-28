@@ -13,12 +13,12 @@ const contacts = {
 
 export const contactsReducer = createReducer(contacts, {
   [addContact]: (state, action) => {
-    state.contacts.items.push(action.payload);
+    state.items.push(action.payload);
   },
-  //   [delContact]: (state, action) => {
-  //     state.contacts.items = state.items.filter(({ id }) => id !== action.payload);
-  //   },
-  //   [filterContact]: (state, action) => {
-  //     state.filter = action.payload;
-  //   },
+  [delContact]: (state, action) => {
+    state.items = state.items.filter(({ id }) => id !== action.payload);
+  },
+  [filterContact]: (state, action) => {
+    state.filter = action.payload;
+  },
 });
