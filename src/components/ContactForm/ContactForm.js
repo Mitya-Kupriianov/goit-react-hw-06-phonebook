@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/contactsSlice';
 import s from './ContactForm.module.css';
 import { useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
@@ -33,7 +33,7 @@ export default function ContactForm() {
   const handleSubmit = e => {
     e.preventDefault();
     if (
-      contacts.find(
+      contacts?.find(
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
